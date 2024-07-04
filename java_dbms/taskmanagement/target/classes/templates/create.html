@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Icons CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Your custom CSS -->
+    <style>
+
+        img{
+            height: 75px;
+            width: 75px;
+        }
+        .teamid {
+            margin-bottom: 20px;
+        }
+        .teamcho {
+            text-align: right;
+        }
+        .animate__animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        .animate__fadeInUp {
+            animation-name: fadeInUp;
+        }
+        .container-xl {
+            max-width: 1200px; /* Adjust container size as needed */
+        }
+        .card-body {
+            padding: 40px;
+        }
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar starts -->
+<nav class="navbar navbar-expand-lg navbar-light text-light bg-dark">
+    <div class="container">
+        <a class="navbar-brand text-light" href="#">
+            <img src="logo.png" class="img-fluid" alt="Logo">
+            Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item ms-sm-5">
+                    <a class="nav-link active text-light" aria-current="page" href="/mainpage">Home</a>
+                </li>
+                <li class="nav-item ms-sm-5">
+                    <a class="nav-link text-light" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item ms-sm-5">
+                    <a class="nav-link text-light" href="/about">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Navbar ends -->
+
+<div class="container-xl mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card mt-5 animate__animated animate__fadeInUp">
+                <div class="card-body">
+                    <h3 class="card-title">Enter the ID to create the team</h3>
+                    <form action="/createteam" method="post">
+                        <input type="text" placeholder="Create the team ID for your team" id="createteamid" name="createteamid" class="form-control teamid" required>
+                        <div class="teamcho">
+                            <button class="btn btn-primary btn-lg animate__animated animate__fadeInUp" type="submit">Create Team</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

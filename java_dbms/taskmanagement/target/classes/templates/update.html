@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Navbar starts -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container">
+        <a class="navbar-brand text-light" href="#">
+            <img src="logo.png" class="img-fluid" alt="Logo" style="height: 30px;">
+            Navbar
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/mainpage">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/about">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Navbar ends -->
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Table Column -->
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Number</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="Item:${taskdetail}">
+                    <td th:text="${Item.UserName}"></td>
+                    <td th:text="${Item.TeamNo}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Form Column -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Add Task</h3>
+                    <form action="/updatetask" method="post">
+                        <div class="mb-3">
+                            <input class="form-control" type="text" id="sender" name="sender" placeholder="Enter your username" required>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" id="task" name="task" placeholder="Enter the task" required>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="date" id="enddate" name="enddate" required>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" id="receiver" name="receiver" placeholder="Enter your teammate's name to assign the task" required>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" id="progress" name="progress" placeholder="Enter the progress percentage" required>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Add Task</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

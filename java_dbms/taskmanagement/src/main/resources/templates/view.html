@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+<!-- Navbar starts -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container">
+        <a class="navbar-brand text-light" href="#">
+            <img src="logo.png" class="img-fluid" alt="Logo" style="height: 30px;">
+            Navbar
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-5 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-light ms-md-4" href="/mainpage">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light ms-md-5" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light ms-md-5" href="/about">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Navbar ends -->
+
+<div class="container mt-5">
+    <div class="">
+        <form action="/delete" method="post" >
+            <table class="table table-bordered">
+                <thead class="bg-dark text-light">
+                <tr>
+                    <th>Sender</th>
+                    <th>Task</th>
+                    <th>Receiver</th>
+                    <th>End Date</th>
+                    <th>Progress</th>
+                    <!-- Add more columns as needed -->
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="taskItem : ${taskdetails}">
+                    <td th:text="${taskItem.Sender}"></td>
+                    <td th:text="${taskItem.Task}"></td>
+                    <td th:text="${taskItem.Receiver}"></td>
+                    <td th:text="${taskItem.Enddate}"></td>
+                    <td th:text="${taskItem.Progress}"></td>
+                    <td>
+                        <button type="submit" name="selectedRow" th:value="${taskdetails}" th:text="delete">Delete Task</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+
+            <!-- Button moved to the right -->
+
+
+
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+
+        </div>
+        <div class="col-2 ps-5 ">
+            <a href="/update" > <button class="btn btn-primary ">Add Task</button></a>
+
+        </div>
+    </div><h2>Task Others Assign to You</h2>
+    <form action="/delete" method="post" >
+        <table class="table table-bordered">
+            <thead class="bg-dark text-light">
+            <tr>
+                <th>Sender</th>
+                <th>Task</th>
+                <th>Receiver</th>
+                <th>End Date</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="taskItem : ${taskdetails2}">
+                <td th:text="${taskItem.Sender}"></td>
+                <td th:text="${taskItem.Task}"></td>
+                <td th:text="${taskItem.Receiver}"></td>
+                <td th:text="${taskItem.Enddate}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+        <h2>Task You Assign to Others</h2>
+        <form action="/delete" method="post" >
+            <table class="table table-bordered">
+                <thead class="bg-dark text-light">
+                <tr>
+                    <th>Sender</th>
+                    <th>Task</th>
+                    <th>Receiver</th>
+                    <th>End Date</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="taskItem : ${taskdetails3}">
+                    <td th:text="${taskItem.Sender}"></td>
+                    <td th:text="${taskItem.Task}"></td>
+                    <td th:text="${taskItem.Receiver}"></td>
+                    <td th:text="${taskItem.Enddate}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        <!-- Button moved to the right -->
+
+
+
+    </form>
+
+
+</div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
